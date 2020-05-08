@@ -3,7 +3,9 @@
 """
 
 # sklearn models
-from sklearn.ensemble import RandomForestClassifier,ExtraTreesClassifier,AdaBoostClassifier
+
+from sklearn.ensemble import RandomForestClassifier, ExtraTreesClassifier
+from sklearn.ensemble import AdaBoostClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.svm import SVC
@@ -13,12 +15,16 @@ from sklearn.gaussian_process.kernels import RBF
 from sklearn.gaussian_process import GaussianProcessClassifier
 from sklearn.naive_bayes import GaussianNB
 from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis
+
 # normalizers 
+
 from sklearn import preprocessing
 import umap
+
 # dimension reduction
+
 from sklearn.manifold import TSNE
-from sklearn.decomposition import FastICA,PCA,KernelPCA
+from sklearn.decomposition import FastICA, PCA, KernelPCA
 import umap
 
 
@@ -27,13 +33,15 @@ from sklearn.model_selection import train_test_split
 
 # ploting
 from matplotlib.colors import ListedColormap
-from sklearn.metrics import accuracy_score,confusion_matrix
+from sklearn.metrics import accuracy_score, confusion_matrix
 import seaborn as sn
 import matplotlib.pyplot as plt
 import numpy as np
 import itertools
 
 # helpers
+
+
 def merge_dicts(*dict_args):
     """
     Given any number of dicts, shallow copy and merge into a new dict,
@@ -44,7 +52,8 @@ def merge_dicts(*dict_args):
         result.update(dictionary)
     return result
 
-def train( models ,X_train , y_train):
+
+def train(models, X_train, y_train):
     """
     train  all models model
 
@@ -60,18 +69,11 @@ def train( models ,X_train , y_train):
     models.keys -- models type
     """
     for model_type, model in models.items():
-        model =  model.fit(X_train, y_train)
-    return models , models.keys
+        model = model.fit(X_train, y_train)
+    return models, models.keys
     
-def find(X,
-         Y,
-         test_size = .2,
-         preprocessing_type = 0,
-         dimension_reduction_type = 0,
-         models_type = 0,
-         verbose = 1, 
-         normalize_validation_data =  False ,
-         random_state = 42 ):
+    
+def find(X, Y, test_size= .2, preprocessing_type= 0, dimension_reduction_type= 0, models_type= 0, verbose= 1, normalize_validation_data= False,  random_state= 42):
     """
     find best paramter for your data with semi-auto ML pipline
 
