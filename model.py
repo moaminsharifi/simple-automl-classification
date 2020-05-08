@@ -217,11 +217,11 @@ def find(X, Y, test_size= .2, preprocessing_type= 0, dimension_reduction_type= 0
                 """.format(train_scores , test_scores))
             
             key_dict = '{}_{}'.format(data_type,rd_type)
-            train_scores[key_dict] = test_score
-            test_scores[key_dict] = train_score
-        ##############################
-        #### Find best parameter ####
-        ##############################
+            test_scores[key_dict] = test_score
+            train_scores[key_dict] = train_score
+    ##############################
+    #### Find best parameter ####
+    ##############################
     max_score = 0
 
 
